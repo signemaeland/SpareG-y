@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpareGøy</title>
+    <link rel="stylesheet" href="Saving_money.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div id="investmentBox" style="display: none; position: absolute; top: 60px; right: 20%; background-color: white; padding: 10px; border: 1px solid #a1a8a9; border-radius: 8px; box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.1);">
+                Dine investeringer: <span id="investmentAmount">0 kr</span>
+            </div>
+            <div id="branding">
+                <A class="underlinje" href="Saving_money.html"><h1>SpareGØY</h1>
+            </div>
+            <ul>
+                <li><a href="Saving_money.html">Hjem</a></li>
+                <li><a href="Dine_mål_spare.html">Kontakt Oss</a></li>
+            </ul>
+        </nav>
+        
+    </header>
+
+    <main>
+        <section id="hero">
+                <h1>SpareGøy, ditt spareeventyr!</h1>
+                <div class="hero-icons">
+                    <div class="hero-feature">
+                        Spar smart
+                        <span class="hero-icon">💰</span>
+                    </div>
+                    <div class="hero-feature">
+                        Konkurrer med venner
+                        <span class="hero-icon">🏆</span>
+                    </div>
+                    <div class="hero-feature">
+                        Spill og vinn
+                        <span class="hero-icon">🎮</span>
+                    </div>
+                </div>
+        </section>
+
+        <section id="features">
+            <div class="feature-card">
+                <h2>🎯 Sett Mål</h2>
+                <p>Sett sparemål og jobb mot å oppnå dem med motivasjon!</p>
+            </div>
+            <div class="feature-card">
+                <h2>📊 Visualiser Fremgang</h2>
+                <p>Se sparingen din vokse med våre interaktive diagrammer og fremdriftslinjer!</p>
+            </div>
+            <div class="feature-card">
+                <h2>🤝 Sammenlign med Andre</h2>
+                <p>Se hvordan du ligger an i forhold til andre og finn motivasjon i sunn konkurranse!</p>
+            </div>
+        </section>
+
+        <section id="main-content">
+            <section id="savingsPlan">
+                <h2>Lag en Spareplan</h2>
+                <div id="savingsPlanSummary"></div>
+                <input type="text" id="savingsType" placeholder="Hvordan ønsker du å spare?">
+                <textarea id="savingsMotivation" placeholder="Hva er din motivasjon for å spare?"></textarea>
+                <input type="number" id="savingsGoal" placeholder="Hvor mye ønsker du å spare?">
+                <input type="number" id="savingsTime" placeholder="Hvor mange måneder vil det ta?">
+                <button onclick="createSavingsPlan()">Lagre Plan</button>
+                    <div id="savedSavingsPlan"></div>
+                <section class="savings-display">
+                    <h2>🚀 Ditt SpareGøy 🚀</h2>
+                    <p>🎉 Måten du sparer på: <span id="displaySavingsType"></span></p>
+                    <p>💪 Din drivkraft: <span id="displaySavingsMotivation"></span></p>
+                    <p>💰 Ditt ultimate mål: <span id="displaySavingsGoal"></span> kr</p>
+                    <p>⏰ Tid du gir deg selv: <span id="displaySavingsTime"></span> måneder</p>
+                    <p>Vi tror på deg! La oss gjøre denne reisen sammen!</p>
+                </section>
+            </section>
+        
+
+            
+        </section>
+
+        <aside id="progressTowardsGoal">
+            <h2>Fremdrift mot Mål</h2>
+            
+            <input type="number" id="amountSaved" placeholder="Hvor mye har du spart?">
+            <button onclick="updateProgress()">Oppdater Fremdrift</button>
+            
+            <div id="progressInfo">
+                <span id="savedAmountDisplay">0 kr</span> / <span id="goalAmountDisplay">0 kr</span>
+                <div id="remainingAmount">Gjenstår: <span id="remainingAmountDisplay">0 kr</span></div>
+                <span id="emojiDisplay">🙂</span>
+            </div>
+        </aside>
+
+        <section id="competitionSection">
+            <h2>Konkurrer og spar sammen med vennene dine!</h2>
+            <p>Se hvordan du ligger an i forhold til vennene dine. Hvem når sitt sparemål først?</p>
+            
+            <div class="competitor competitor1">
+                <span class="emoji-avatar">👩</span> 
+                <span class="competitor-name">Anna</span>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 70%;"></div>
+                </div>
+                <span class="percentage">70%</span>
+            </div>
+            
+            <div class="competitor competitor2">
+                <span class="emoji-avatar">🧔</span> 
+                <span class="competitor-name">Erik</span>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 55%;"></div>
+                </div>
+                <span class="percentage">55%</span>
+            </div>
+            
+            <div class="competitor competitor3">
+                <span class="emoji-avatar">👱‍♂️</span> 
+                <span class="competitor-name">Oscar</span>
+                <div class="progress">
+                    <div class="progress-bar" style="width: 85%;"></div>
+                </div>
+                <span class="percentage">85%</span>
+            </div>
+        
+            <button id="challengeFriends">Inviter vennene dine og gjør sparingen morsommere!</button>
+        </section>
+    
+        <section id="gameExplanation">
+            <h3>🎮 Finn 💰-emoji og vinn poeng! 🎮</h3>
+            <div id="chessboard">
+                <div class="square" data-id="1"></div>
+                <div class="square" data-id="2"></div>
+                <div class="square" data-id="3"></div>
+                <div class="square" data-id="4"></div>
+                <div class="square" data-id="5"></div>
+                <div class="square" data-id="6"></div>
+                <div class="square" data-id="7"></div>
+                <div class="square" data-id="8"></div>
+                <div class="square" data-id="9"></div>
+                <div class="square" data-id="10"></div>
+                <div class="square" data-id="11"></div>
+                <div class="square" data-id="12"></div>
+                <div class="square" data-id="13"></div>
+                <div class="square" data-id="14"></div>
+                <div class="square" data-id="15"></div>
+                <div class="square" data-id="16"></div>
+            </div>
+        </div>
+        <div id="gameFeedback"></div>
+        </section>
+        
+    </main>
+
+    <footer>
+        <p>© 2023 SpareGøy | Laget med 💰 og 💻</p>
+    </footer>
+
+    <script src="Saving_money.js"></script>
+</body>
+
+</html>
